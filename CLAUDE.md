@@ -22,4 +22,4 @@ Electron · React · TypeScript · Tailwind · Rust (`native/hydra-native`, addo
 ## Commits y ramas
 - Ramas: `feat/<tema>`, `fix/<tema>`, `chore/<tema>`, `refactor/<tema>`.
 - Commits: Conventional Commits (`feat:`, `fix:`, `chore:`…), validados por commitlint/husky; asunto corto en imperativo.
-- Nunca commitear directo a `main`; PR por rama.
+- Nunca commitear directo a `main`. Sin PRs: pushear la rama e integrarla en `develop` con merge (o rebase + fast-forward) directamente.

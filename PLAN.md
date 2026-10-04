@@ -137,9 +137,9 @@ Protocolo de los spikes de Windows (W1–W6): `spikes/windows/README.md`.
 ### Renderer (`src/renderer/src/fork/`)
 `ForkGameControls` (botón hero + popover "Mando": modo, plantilla, estado), `TemplatePicker`, `ForkIntegrationsSettings` (Steam detectado/usuario, ruta SISR, toggles, cambios pendientes + "Aplicar (reinicia Steam)"), `ForkImportModal` (providers, preview con dedupe, importar). i18n: claves `fork` en `src/locales/{en,es}/translation.json`.
 
-## 6. Roadmap de PRs atómicos
+## 6. Roadmap de ramas atómicas
 
-Todos desde rama `feat/*` (o `chore/*`), Conventional Commits, PR por rama, nunca a `main` directo.
+Todos desde rama `feat/*` (o `chore/*`), Conventional Commits. **Sin PRs**: cada rama se pushea y se integra directamente en `develop` mediante merge (o rebase + fast-forward), y se continúa con la siguiente. `develop` es la rama de integración del fork; `main` se mantiene alineada con upstream y no se commitea directo.
 
 0. **`chore/fork-plan`** — `CLAUDE.md` + `PLAN.md`. *DoD*: commitlint pasa.
 1. **`feat/steam-vdf-codec`** — crate + napi + tipos en `native-addon.ts`. *DoD*: `cargo test -p steam-vdf` verde (round-trip byte a byte con fixtures reales y sintéticos —incl. índices dispersos—, error en tipo desconocido, sin `unwrap`/`expect` en IO/parseo); `yarn build:native` + `yarn typecheck` OK.
