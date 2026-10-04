@@ -112,6 +112,10 @@ type HydraNativeModule = {
     snapshotId: string,
     tempRoot: string
   ) => Promise<void>;
+  steamShortcutsRead: (path: string) => string;
+  steamShortcutsWrite: (path: string, treeJson: string) => void;
+  steamVdfTextParse: (content: string) => string;
+  steamVdfTextWrite: (treeJson: string) => string;
 };
 
 export type SystemProcessMap = {
