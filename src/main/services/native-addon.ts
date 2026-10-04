@@ -211,6 +211,14 @@ export class NativeAddon {
     return this.load().torrentRequest(method, paramsJson);
   }
 
+  public static steamShortcutsRead(path: string) {
+    return this.load().steamShortcutsRead(path);
+  }
+
+  public static steamShortcutsWrite(path: string, treeJson: string) {
+    return this.load().steamShortcutsWrite(path, treeJson);
+  }
+
   public static torrentShutdown() {
     // Quitting an app which never used torrenting must not load the addon.
     return this.nativeModule?.torrentShutdown() ?? Promise.resolve();

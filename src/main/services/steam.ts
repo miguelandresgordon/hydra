@@ -3,10 +3,11 @@ import path from "node:path";
 import fs from "node:fs";
 import { crc32 } from "crc";
 import WinReg from "winreg";
-import { parseBuffer, writeBuffer } from "steam-shortcut-editor";
+import { parseBuffer } from "steam-shortcut-editor";
 
 import type { SteamShortcut } from "@types";
 
+import { forkShortcutsStore } from "@main/fork/steam/fork-shortcuts-store";
 import { logger } from "./logger";
 import { SystemPath } from "./system-path";
 import {
@@ -259,10 +260,8 @@ export const composeSteamShortcut = (
 export const writeSteamShortcuts = async (
   steamUserId: number,
   shortcuts: SteamShortcut[]
-) => {
-  const buffer = writeBuffer({ shortcuts });
-
-  return fs.promises.writeFile(
+) =>
+  forkShortcutsStore.writeShortcuts(
     path.join(
       await getSteamLocation(),
       "userdata",
@@ -270,6 +269,5 @@ export const writeSteamShortcuts = async (
       "config",
       "shortcuts.vdf"
     ),
-    buffer
+    shortcuts
   );
-};
