@@ -12,6 +12,7 @@ ludusavi/**
 !ludusavi/config.yaml
 /hydra-native/
 native/hydra-native/target/
+native/steam-vdf/target/
 
 # Sentry Config File
 .env.sentry-build-plugin
